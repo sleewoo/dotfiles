@@ -1,0 +1,67 @@
+
+hide_cursor_when_typing: true
+
+env:
+  TERM: xterm-256color
+
+font:
+  normal:
+    family: "JetBrains Mono"
+    style: Regular
+  size: 10.5
+
+
+window:
+
+  dynamic_title: true
+
+  padding:
+    x: 0
+    y: 0
+
+  # Spread additional padding evenly around the terminal content.
+  dynamic_padding: true
+
+  # Window dimensions in character columns and lines
+  # (changes require restart)
+  dimensions:
+    columns: 140
+    lines: 40
+
+shell:
+  program: /usr/bin/bash
+  args:
+    - -l
+
+# Send ESC (\x1b) before characters when alt is pressed.
+alt_send_esc: true
+
+# Colors (One Dark)
+colors:
+  # Default colors
+  primary:
+    background: '0x282c34'
+    foreground: '0xabb2bf'
+
+  # Normal colors
+  normal:
+    black:   '0x131613'
+    red:     '0xe06c75'
+    green:   '0x98c379'
+    yellow:  '0xd19a66'
+    blue:    '0x61afef'
+    magenta: '0xc678dd'
+    cyan:    '0x56b6c2'
+    white:   '0xabb2bf'
+
+  # Bright colors
+  bright:
+    black:   '0x5c6370'
+    red:     '0xe06c75'
+    green:   '0x98c379'
+    yellow:  '0xd19a66'
+    blue:    '0x61afef'
+    magenta: '0xc678dd'
+    cyan:    '0x56b6c2'
+    white:   '0xffffff'
+

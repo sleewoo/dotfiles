@@ -1,0 +1,23 @@
+{
+  "explorer.file.showHiddenFiles": true,
+  "tsserver.disableAutomaticTypeAcquisition": true,
+
+  "typescript.format.enabled": false,
+  "javascript.format.enabled": false,
+
+  "typescript.updateImportsOnFileMove.enable": false,
+  "javascript.updateImportsOnFileMove.enable": false,
+
+  "typescript.suggestionActions.enabled": false,
+  "javascript.suggestionActions.enabled": false,
+
+  "typescript.showUnused": false,
+  "javascript.showUnused": false,
+
+  "tsserver.watchOptions": {
+    "watchFile": "useFsEvents",
+    "watchDirectory": "useFsEvents",
+    "fallbackPolling": "dynamicPriorityPolling"
+  }
+}
+

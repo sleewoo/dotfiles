@@ -1,0 +1,11 @@
+
+[core]
+  pager = delta
+
+[interactive]
+  diffFilter = delta
+
+[delta]
+  syntax-theme = TwoDark
+  side-by-side = true
+
