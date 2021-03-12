@@ -11,8 +11,7 @@ export HISTCONTROL="ignoreboth:erasedups"
 export ERL_AFLAGS="-kernel shell_history enabled"
 export PGTZ="UTC"
 
-export RIPGREP_CONFIG_PATH="~/.config/rg.conf"
-export FZF_DEFAULT_COMMAND="rg --files"
+export FZF_DEFAULT_COMMAND="rg --files --hidden"
 export FZF_DEFAULT_OPTS="-m --height 50% --border"
 
 source ~/.config/tmuxinator.sh

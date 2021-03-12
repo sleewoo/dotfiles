@@ -57,6 +57,9 @@ let g:fzf_preview_window = ['up:75%', 'ctrl-/']
 " toggle coc-explorer
 :nnoremap <Leader>e :CocCommand explorer<CR>
 
+" toggle modified file list
+:nnoremap <Leader>m :GF?<CR>
+
 " toggle fzf files
 :nnoremap <Leader>f :Files<CR>
 
@@ -64,12 +67,9 @@ let g:fzf_preview_window = ['up:75%', 'ctrl-/']
 " toggle search dialog
 :nnoremap <Leader>g :RG<CR>
 
-" toggle modified file list
-:nnoremap <Leader>m :GF?<CR>
-
 " delegate searching to rg
 function! RipgrepFzf(query, fullscreen)
-  let command_fmt = 'rg --column --line-number --no-heading --color=always -- %s || true'
+  let command_fmt = 'rg --column --line-number --no-heading --hidden --color=always -- %s || true'
   let initial_command = printf(command_fmt, shellescape(a:query))
   let reload_command = printf(command_fmt, '{q}')
   let spec = {'options': ['--phony', '--query', a:query, '--bind', 'change:reload:'.reload_command]}
