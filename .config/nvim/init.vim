@@ -72,8 +72,16 @@ function! RipgrepFzf(query, fullscreen)
   let command_fmt = 'rg --column --line-number --no-heading --hidden --color=always -- %s || true'
   let initial_command = printf(command_fmt, shellescape(a:query))
   let reload_command = printf(command_fmt, '{q}')
-  let spec = {'options': ['--phony', '--query', a:query, '--bind', 'change:reload:'.reload_command]}
+  let spec = { 'dir': s:explorer_cur_dir(), 'options': ['--phony', '--query', a:query, '--bind', 'change:reload:'.reload_command] }
   call fzf#vim#grep(initial_command, 1, fzf#vim#with_preview(spec), a:fullscreen)
+endfunction
+
+function! s:explorer_cur_dir()
+  let node_info = CocAction('runCommand', 'explorer.getNodeInfo', 0)
+  if type(node_info) == type({})
+    let flags = node_info['directory'] ? ':p' : ':p:h'
+    return fnamemodify(node_info['fullpath'], flags)
+  endif
 endfunction
 
 command! -nargs=* -bang RG call RipgrepFzf(<q-args>, <bang>0)
