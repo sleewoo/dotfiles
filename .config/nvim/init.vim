@@ -78,9 +78,8 @@ endfunction
 
 function! s:explorer_cur_dir()
   let node_info = CocAction('runCommand', 'explorer.getNodeInfo', 0)
-  if type(node_info) == type({})
-    let flags = node_info['directory'] ? ':p' : ':p:h'
-    return fnamemodify(node_info['fullpath'], flags)
+  if type(node_info) == type({}) && node_info['directory']
+    return fnamemodify(node_info['fullpath'], ':p')
   endif
 endfunction
 
