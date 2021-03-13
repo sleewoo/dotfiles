@@ -54,6 +54,9 @@ colorscheme one
 " fzf setup
 let g:fzf_preview_window = ['up:75%', 'ctrl-/']
 
+" <Leader>co to close other buffers
+:nnoremap <Leader>co :Bdelete other<cr>
+
 " toggle coc-explorer
 :nnoremap <Leader>e :CocCommand explorer<CR>
 
