@@ -12,7 +12,6 @@
 !/.config/tmux/tmux.conf
 !/.config/alacritty.yml
 !/.config/psql.rc
-!/.config/rg.conf
 !/.bash_profile
 !/.psqlrc
 !/.tmux.conf
