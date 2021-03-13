@@ -58,34 +58,35 @@ let g:fzf_preview_window = ['up:75%', 'ctrl-/']
 :nnoremap <Leader>co :Bdelete other<cr>
 
 " toggle coc-explorer
-:nnoremap <Leader>e :CocCommand explorer<CR>
+:nnoremap <Leader>e :CocCommand explorer --position=floating<cr>
 
 " toggle modified file list
-:nnoremap <Leader>m :GF?<CR>
+:nnoremap <Leader>m :GF?<cr>
 
 " toggle fzf files
-:nnoremap <Leader>f :Files<CR>
+:nnoremap <Leader>f :Files<cr>
+
+" toggle fzf history
+:nnoremap <Leader>h :History<cr>
 
 " >>> search in files
 " toggle search dialog
-:nnoremap <Leader>g :RG<CR>
+:nnoremap <Leader>g :RG<cr>
 
 " delegate searching to rg
 function! RipgrepFzf(query, fullscreen)
   let command_fmt = 'rg --column --line-number --no-heading --hidden --color=always -- %s || true'
   let initial_command = printf(command_fmt, shellescape(a:query))
   let reload_command = printf(command_fmt, '{q}')
-  let spec = { 'dir': s:explorer_cur_dir(), 'options': ['--phony', '--query', a:query, '--bind', 'change:reload:'.reload_command] }
-  " move to the right split
-  wincmd l
-  call fzf#vim#grep(initial_command, 1, fzf#vim#with_preview(spec), a:fullscreen)
-endfunction
-
-function! s:explorer_cur_dir()
   let node_info = CocAction('runCommand', 'explorer.getNodeInfo', 0)
   if type(node_info) == type({}) && node_info['directory']
-    return fnamemodify(node_info['fullpath'], ':p')
+    let dir = fnamemodify(node_info['fullpath'], ':p')
+    CocCommand explorer --toggle --position=floating
+  else
+    let dir = ''
   endif
+  let spec = { 'dir': dir, 'options': ['--phony', '--query', a:query, '--bind', 'change:reload:'.reload_command] }
+  call fzf#vim#grep(initial_command, 1, fzf#vim#with_preview(spec), a:fullscreen)
 endfunction
 
 command! -nargs=* -bang RG call RipgrepFzf(<q-args>, <bang>0)
