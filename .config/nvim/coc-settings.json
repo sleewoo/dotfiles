@@ -11,9 +11,6 @@
   "typescript.suggestionActions.enabled": false,
   "javascript.suggestionActions.enabled": false,
 
-  "typescript.showUnused": false,
-  "javascript.showUnused": false,
-
   "tsserver.watchOptions": {
     "watchFile": "useFsEvents",
     "watchDirectory": "useFsEvents",
