@@ -73,6 +73,8 @@ function! RipgrepFzf(query, fullscreen)
   let initial_command = printf(command_fmt, shellescape(a:query))
   let reload_command = printf(command_fmt, '{q}')
   let spec = { 'dir': s:explorer_cur_dir(), 'options': ['--phony', '--query', a:query, '--bind', 'change:reload:'.reload_command] }
+  " move to the right split
+  wincmd l
   call fzf#vim#grep(initial_command, 1, fzf#vim#with_preview(spec), a:fullscreen)
 endfunction
 
