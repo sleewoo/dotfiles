@@ -3,6 +3,8 @@ set confirm
 set number
 set cursorline
 set cc=80
+set updatetime=1000
+set signcolumn=yes
 
 " ident using 2 spaces
 set expandtab
