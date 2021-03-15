@@ -87,7 +87,14 @@ function! RipgrepFzf(query, fullscreen)
   else
     let dir = ''
   endif
-  let spec = { 'dir': dir, 'options': ['--phony', '--query', a:query, '--bind', 'change:reload:'.reload_command] }
+  let spec = {
+    \'dir': dir,
+    \'options': [
+      \'--phony',
+      \'--query', a:query,
+      \'--bind', 'change:reload:'.reload_command
+    \]
+  \}
   call fzf#vim#grep(initial_command, 1, fzf#vim#with_preview(spec), a:fullscreen)
 endfunction
 

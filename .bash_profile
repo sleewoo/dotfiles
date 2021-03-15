@@ -12,7 +12,7 @@ export ERL_AFLAGS="-kernel shell_history enabled"
 export PGTZ="UTC"
 
 export FZF_DEFAULT_COMMAND="rg --files --hidden"
-export FZF_DEFAULT_OPTS="-m --height 50% --border"
+export FZF_DEFAULT_OPTS="--multi --border --height 50% --history $HOME/.cache/.fzf-history"
 
 source ~/.config/tmuxinator.sh
 
