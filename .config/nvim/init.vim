@@ -92,16 +92,35 @@ function! RipgrepFzf(query, fullscreen)
 endfunction
 
 command! -nargs=* -bang RG call RipgrepFzf(<q-args>, <bang>0)
-" <<< search in files
+" <<<
 
+" >>> coc-related setup
 " Remap keys for gotos
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 
+" Use <c-space> to trigger completion.
+inoremap <silent><expr> <c-space> coc#refresh()
+
+" Symbol renaming.
+nmap <leader>rn <Plug>(coc-rename)
+" <<<
+
 nnoremap <Leader>w :w<CR>
 nnoremap <esc> :let @/ = ""<return><esc>
+
+" <c-h> to display docs
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  else
+    call CocAction('doHover')
+  endif
+endfunction
+
+nnoremap <c-h> :call <SID>show_documentation()<cr>
 
 vmap <Leader>y "+y
 vmap <Leader>d "+d
