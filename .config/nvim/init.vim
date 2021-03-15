@@ -14,6 +14,9 @@ set softtabstop=2
 " Show a status line
 set laststatus=2
 
+" show tabline
+set showtabline=2
+
 " Show the current cursor position
 set ruler
 
