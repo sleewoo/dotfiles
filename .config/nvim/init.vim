@@ -80,7 +80,7 @@ let g:fzf_preview_window = ['up:75%', 'ctrl-/']
 
 " delegate searching to rg
 function! RipgrepFzf(query, fullscreen)
-  let command_fmt = 'rg --column --line-number --no-heading --hidden --color=always -- %s || true'
+  let command_fmt = 'rg --smart-case --column --line-number --no-heading --hidden --color=always -- %s || true'
   let initial_command = printf(command_fmt, shellescape(a:query))
   let reload_command = printf(command_fmt, '{q}')
   let node_info = CocAction('runCommand', 'explorer.getNodeInfo', 0)
@@ -95,7 +95,7 @@ function! RipgrepFzf(query, fullscreen)
     \'options': [
       \'--phony',
       \'--query', a:query,
-      \'--bind', 'change:reload:'.reload_command
+      \'--bind', 'change:reload:'.reload_command,
     \]
   \}
   call fzf#vim#grep(initial_command, 1, fzf#vim#with_preview(spec), a:fullscreen)
@@ -139,3 +139,22 @@ nmap <Leader>P "+P
 vmap <Leader>p "+p
 vmap <Leader>P "+P
 
+" >>> coc-git setup
+
+" navigate chunks of current buffer
+nmap [g <Plug>(coc-git-prevchunk)
+nmap ]g <Plug>(coc-git-nextchunk)
+" navigate conflicts of current buffer
+nmap [c <Plug>(coc-git-prevconflict)
+nmap ]c <Plug>(coc-git-nextconflict)
+" show chunk diff at current position
+nmap gs <Plug>(coc-git-chunkinfo)
+" show commit contains current position
+nmap gc <Plug>(coc-git-commit)
+" create text object for git chunks
+omap ig <Plug>(coc-git-chunk-inner)
+xmap ig <Plug>(coc-git-chunk-inner)
+omap ag <Plug>(coc-git-chunk-outer)
+xmap ag <Plug>(coc-git-chunk-outer)
+
+" <<<
