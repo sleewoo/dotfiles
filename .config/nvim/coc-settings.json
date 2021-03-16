@@ -16,6 +16,7 @@
     "watchDirectory": "useFsEvents",
     "fallbackPolling": "dynamicPriorityPolling"
   },
+
   "cSpell.showStatus": false,
   "cSpell.ignorePaths": [
     ".git",
@@ -140,6 +141,7 @@
     "upsert",
     "upversion",
     "uuids",
+    "uvid",
     "varchar",
     "veracore",
     "vhosts",
