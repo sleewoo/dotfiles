@@ -97,10 +97,13 @@ augroup END
 " === fzf setup ===
 let g:fzf_preview_window = ['up:75%', 'ctrl-/']
 
-" toggle fzf files
+" open fzf files
 :nnoremap <leader>f :Files<cr>
 
-" toggle fzf history
+" open buffer list
+:nnoremap <leader>b :Buffers<cr>
+
+" open fzf history
 :nnoremap <leader>h :History<cr>
 
 " === coc setup ===
