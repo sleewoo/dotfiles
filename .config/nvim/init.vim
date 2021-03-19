@@ -39,6 +39,9 @@ set listchars=tab:→\ ,space:·,nbsp:␣,trail:•,precedes:«,extends:»
 " do not save while in insert mode
 let g:auto_save_in_insert_mode = 0
 
+" save when leaving insert mode
+autocmd InsertLeave * silent! update
+
 let mapleader = "\<Space>"
 
 " save with <leader>w
