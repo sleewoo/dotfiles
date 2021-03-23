@@ -46,9 +46,6 @@ autocmd InsertLeave * silent! update
 
 let mapleader = "\<Space>"
 
-" save with <leader>w
-nnoremap <leader>w :w<cr>
-
 " clear highlighten items with <esc>
 nnoremap <esc> :let @/ = ""<return><esc>
 
