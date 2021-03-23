@@ -17,11 +17,9 @@ set expandtab
 set shiftwidth=2
 set softtabstop=2
 
-" Show a status line
-set laststatus=2
-
 " show tabline
 set showtabline=2
+set tabline=%f
 
 " Show the current cursor position
 set ruler
