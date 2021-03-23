@@ -17,10 +17,6 @@ set expandtab
 set shiftwidth=2
 set softtabstop=2
 
-" show tabline
-set showtabline=2
-set tabline=%f
-
 " Show the current cursor position
 set ruler
 
@@ -186,15 +182,45 @@ let delimitMate_expand_cr = 1
 " gitui in floating terminal
 nnoremap <leader>g :FloatermNew --height=0.8 --width=0.8 --name=gitui --title=gitui gitui<cr>
 
-" === status line ===
+" === status line and tabs ===
+
 set laststatus=2
+set showtabline=2
 set noshowmode
+
 let g:lightline = {
   \ 'colorscheme': 'nord',
-  \ 'active': {
-    \ 'left': [['mode', 'paste'], ['gitbranch', 'readonly', 'filename', 'modified']],
-  \ },
   \ 'component_function': {
-      \ 'gitbranch': 'FugitiveHead'
+      \ 'filetype': 'Filetype',
+      \ 'fileformat': 'Fileformat',
+  \ },
+  \ 'tab_component_function': {
+    \ 'filename': 'TabFilename',
   \ },
 \ }
+
+function! Filetype()
+  return winwidth(0) > 70
+    \ ? (
+          \ strlen(&filetype)
+            \ ? &filetype . ' ' . WebDevIconsGetFileTypeSymbol()
+            \ : 'no ft'
+      \ ) 
+    \ : ''
+endfunction
+
+function! Fileformat()
+  return winwidth(0) > 70
+    \ ? (&fileformat . ' ' . WebDevIconsGetFileFormatSymbol())
+    \ : ''
+endfunction
+
+function! TabFilename(n) abort
+  let buflist = tabpagebuflist(a:n)
+  let winnr = tabpagewinnr(a:n)
+  let path = expand('#' . buflist[winnr - 1].':p')
+  return path !=# ''
+    \ ? WebDevIconsGetFileTypeSymbol() . substitute(path, getcwd() . "/", " ", "")
+    \ : '[No Name]' 
+endfunction
+
