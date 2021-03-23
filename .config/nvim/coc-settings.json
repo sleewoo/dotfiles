@@ -1,6 +1,13 @@
 {
   "explorer.file.showHiddenFiles": true,
+  "explorer.icon.enableVimDevicons": true,
+
   "tsserver.disableAutomaticTypeAcquisition": true,
+  "tsserver.watchOptions": {
+    "watchFile": "useFsEvents",
+    "watchDirectory": "useFsEvents",
+    "fallbackPolling": "dynamicPriorityPolling"
+  },
 
   "typescript.format.enabled": false,
   "javascript.format.enabled": false,
@@ -10,12 +17,6 @@
 
   "typescript.suggestionActions.enabled": false,
   "javascript.suggestionActions.enabled": false,
-
-  "tsserver.watchOptions": {
-    "watchFile": "useFsEvents",
-    "watchDirectory": "useFsEvents",
-    "fallbackPolling": "dynamicPriorityPolling"
-  },
 
   "cSpell.showStatus": false,
   "cSpell.ignorePaths": [
