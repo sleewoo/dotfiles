@@ -74,44 +74,60 @@ colorscheme nord
 
 " === grep setup ===
 
-set grepprg=rg\ --smart-case\ --hidden\ --vimgrep
+set grepprg=rg
 set grepformat=%f:%l:%c:%m
+let g:rgargs='--vimgrep'
 
 function! Grep(...)
-  return system(join([&grepprg] + [join(a:000, ' ')], ' '))
+  return system(join([ 'rg', g:rgargs ] + [ join(a:000, ' ') ], ' '))
+endfunction
+
+function! IGrep(...)
+  return system(join([ 'rg', g:rgargs, '--ignore-case' ] + [ join(a:000, ' ') ], ' '))
 endfunction
 
 command! -nargs=+ -complete=file_in_path -bar Grep  cgetexpr Grep(<f-args>)
-command! -nargs=+ -complete=file_in_path -bar LGrep lgetexpr Grep(<f-args>)
-
-cnoreabbrev <expr> grep  (getcmdtype() ==# ':' && getcmdline() ==# 'grep')  ? 'Grep'  : 'grep'
-cnoreabbrev <expr> lgrep (getcmdtype() ==# ':' && getcmdline() ==# 'lgrep') ? 'LGrep' : 'lgrep'
+command! -nargs=+ -complete=file_in_path -bar IGrep cgetexpr IGrep(<f-args>)
 
 augroup quickfix
   autocmd!
   autocmd QuickFixCmdPost cgetexpr cwindow
-  autocmd QuickFixCmdPost lgetexpr lwindow
-augroup END
+augroup end
+
+" close quickfix list
+nmap <leader>q :cclose <bar> :FloatermKill!<cr>
+
+" grep word under cursor
+nmap <leader>s :execute "Grep <c-r><c-w>"<cr>
+
+" grep word under cursor, case insensitive
+nmap <leader>si :execute "IGrep <c-r><c-w>"<cr>
+
+" grep word under cursor, exact match
+nmap <leader>w :execute "Grep '\\b<c-r><c-w>\\b'"<cr>
+
+" grep word under cursor, exact match, case insensitive
+nmap <leader>wi :execute "IGrep '\\b<c-r><c-w>\\b'"<cr>
 
 " === fzf setup ===
-let g:fzf_preview_window = ['up:75%', 'ctrl-/']
+let g:fzf_preview_window = [ 'up:60%:hidden', 'ctrl-/' ]
 
 " open fzf files
-:nnoremap <leader>f :Files<cr>
+nmap <leader>f :Files<cr>
 
 " open buffer list
-:nnoremap <leader>b :Buffers<cr>
+nmap <leader>b :Buffers<cr>
 
 " open fzf history
-:nnoremap <leader>h :History<cr>
+nmap <leader>h :History<cr>
+
+" toggle modified file list
+nmap <leader>m :GF?<cr>
 
 " === coc setup ===
 
 " toggle coc-explorer
-:nnoremap <leader>e :CocCommand explorer --position=floating<cr>
-
-" toggle modified file list
-:nnoremap <leader>m :GF?<cr>
+nmap <leader>e :CocCommand explorer --position=floating<cr>
 
 " Remap keys for gotos
 nmap <silent> gd <Plug>(coc-definition)
