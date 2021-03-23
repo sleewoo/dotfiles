@@ -164,3 +164,15 @@ nmap <leader>a <Plug>(coc-codeaction-selected)
 let delimitMate_expand_space = 1
 let delimitMate_expand_cr = 1
 
+" === status line ===
+set laststatus=2
+set noshowmode
+let g:lightline = {
+  \ 'colorscheme': 'nord',
+  \ 'active': {
+    \ 'left': [['mode', 'paste'], ['gitbranch', 'readonly', 'filename', 'modified']],
+  \ },
+  \ 'component_function': {
+      \ 'gitbranch': 'FugitiveHead'
+  \ },
+\ }
