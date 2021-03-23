@@ -1,8 +1,0 @@
-Session.vim
-.git
-.DS_Store
-node_modules
-npm_debug.log
-*~
-*.swp
-
