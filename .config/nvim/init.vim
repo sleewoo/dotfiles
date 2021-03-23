@@ -124,6 +124,9 @@ nmap <leader>h :History<cr>
 " toggle modified file list
 nmap <leader>m :GF?<cr>
 
+" buffer search
+nmap <leader>/ :BLines<cr>
+
 " === coc setup ===
 
 " toggle coc-explorer
