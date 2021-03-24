@@ -2,8 +2,14 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
-alias ls="exa --all --group-directories-first --icons"
-alias ll="exa --all --group-directories-first --icons --long --group --git"
+if [ "$(command -v exa)" ]; then
+  alias ls="exa --all --group-directories-first --icons"
+  alias ll="exa --all --group-directories-first --icons --long --group --git"
+fi
+
+if [ "$(command -v bat)" ]; then
+  alias cat="bat --style=plain --pager=never"
+fi
 
 alias cclip="xclip -selection clipboard"
 
