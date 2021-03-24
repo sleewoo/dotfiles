@@ -13,12 +13,12 @@ $character"""
 
 [character]
 success_symbol = "[➜](bold green)"
-error_symbol = "[✖](bold red)"
+error_symbol = "[➜](bold red)"
 vicmd_symbol = "[V](bold green) "
 
 [status]
 disabled = false
-format = '[\[ $status \]]($style) '
+format = '[\[ $symbol $status \]]($style) '
 
 [directory]
 truncation_symbol = "…/"
