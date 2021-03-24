@@ -13,7 +13,7 @@ fi
 
 alias cclip="xclip -selection clipboard"
 
-export PATH="~/bin:~/.npm-global/bin:~/.gem/ruby/2.7.0/bin:$PATH"
+export PATH="~/bin:$PATH"
 
 export HISTCONTROL="ignoreboth:erasedups"
 
