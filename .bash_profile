@@ -30,4 +30,5 @@ export FZF_DEFAULT_OPTS=" \
 "
 
 source ~/.config/tmuxinator.sh
+eval "$(zoxide init bash)"
 
