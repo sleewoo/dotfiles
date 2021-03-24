@@ -106,7 +106,7 @@ nmap <leader>w :execute "Grep '\\b<c-r><c-w>\\b'"<cr>
 nmap <leader>wi :execute "IGrep '\\b<c-r><c-w>\\b'"<cr>
 
 " === fzf setup ===
-let g:fzf_preview_window = [ 'up:60%:hidden', 'ctrl-/' ]
+let g:fzf_preview_window = [ 'up:75%:hidden', 'ctrl-/' ]
 
 " open fzf files
 nmap <leader>f :Files<cr>
