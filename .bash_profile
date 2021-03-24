@@ -13,7 +13,7 @@ fi
 
 alias cclip="xclip -selection clipboard"
 
-export PATH="~/.npm-global/bin:~/.gem/ruby/2.7.0/bin:$PATH"
+export PATH="~/bin:~/.npm-global/bin:~/.gem/ruby/2.7.0/bin:$PATH"
 
 export HISTCONTROL="ignoreboth:erasedups"
 
@@ -31,4 +31,4 @@ export FZF_DEFAULT_OPTS=" \
 
 source ~/.config/tmuxinator.sh
 eval "$(zoxide init bash)"
-
+eval "$(starship init bash)"

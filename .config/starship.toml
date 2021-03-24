@@ -1,0 +1,26 @@
+
+format = """
+$username\
+$hostname\
+$directory\
+$nodejs\
+$cmd_duration\
+$line_break\
+$jobs\
+$status\
+$shell\
+$character"""
+
+[character]
+success_symbol = "[➜](bold green)"
+error_symbol = "[✖](bold red)"
+vicmd_symbol = "[V](bold green) "
+
+[status]
+disabled = false
+format = '[\[ $status \]]($style) '
+
+[directory]
+truncation_symbol = "…/"
+truncate_to_repo = false
+

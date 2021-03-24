@@ -10,6 +10,7 @@
 !/.config/nvim/init.vim
 !/.config/tmux/tmux.conf
 !/.config/alacritty.yml
+!/.config/starship.toml
 !/.config/psql.rc
 !/.bash_profile
 !/.psqlrc
