@@ -2,7 +2,7 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
-alias ls="ls -GFh --color=auto --group-directories-first"
+alias ls="exa --modified --group --git --group-directories-first"
 alias cclip="xclip -selection clipboard"
 
 export PATH="~/.npm-global/bin:~/.gem/ruby/2.7.0/bin:$PATH"
