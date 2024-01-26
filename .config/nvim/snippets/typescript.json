@@ -1,0 +1,70 @@
+{
+  "import from ./": {
+    "prefix": [ "i/." ],
+    "body": [ "import { $2 } from \"./$1\";" ]
+  },
+  "import default from ./": {
+    "prefix": [ "id/." ],
+    "body": [ "import $1 from \"./$2\";" ]
+  },
+  "import from ../": {
+    "prefix": [ "i/.." ],
+    "body": [ "import { $2 } from \"../$1\";" ]
+  },
+  "import default from ../": {
+    "prefix": [ "id/.." ],
+    "body": [ "import $1 from \"../$2\";" ]
+  },
+  "import from ~/": {
+    "prefix": [ "i/~" ],
+    "body": [ "import { $2 } from \"~/$1\";" ]
+  },
+  "import default from ~/": {
+    "prefix": [ "id/~" ],
+    "body": [ "import $1 from \"~/$2\";" ]
+  },
+  "import from @/": {
+    "prefix": [ "i/@" ],
+    "body": [ "import { $2 } from \"@/$1\";" ]
+  },
+  "import default from @/": {
+    "prefix": [ "id/@" ],
+    "body": [ "import $1 from \"@/$2\";" ]
+  },
+  "import from @/api": {
+    "prefix": [ "i/api" ],
+    "body": [ "import { $2 } from \"@/api\";" ]
+  },
+  "import from @/crud": {
+    "prefix": [ "i/crud" ],
+    "body": [ "import { $2 } from \"@/crud\";" ]
+  },
+  "import type from ~/": {
+    "prefix": [ "it/~" ],
+    "body": [ "import type { $2 } from \"~/$1\";" ]
+  },
+  "import type from @/": {
+    "prefix": [ "it/@" ],
+    "body": [ "import type { $2 } from \"@/$1\";" ]
+  },
+  "import from vue": {
+    "prefix": [ "i/v" ],
+    "body": [ "import { $1 } from \"vue\";" ]
+  },
+  "import type from vue": {
+    "prefix": [ "it/v" ],
+    "body": [ "import type { $1 } from \"vue\";" ]
+  },
+  "import from vue-router": {
+    "prefix": [ "i/vr" ],
+    "body": [ "import { $1 } from \"vue-router\";" ]
+  },
+  "import type from vue-router": {
+    "prefix": [ "it/vr" ],
+    "body": [ "import type { $1 } from \"vue-router\";" ]
+  },
+  "import fetch": {
+    "prefix": [ "i/@f" ],
+    "body": [ "import fetch from \"@/fetch\";$1"]
+  }
+}

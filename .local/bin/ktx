@@ -1,0 +1,48 @@
+#!/usr/bin/env bash
+
+set -e
+
+unset \
+  ktx_config \
+  session_name \
+  session_base \
+  session_tabs \
+;
+
+ktx_config="${KTX_CONFIG:-$HOME/.config/ktx}"
+
+mkdir -p $ktx_config
+
+session_name=$1
+session_base=$ktx_config/${session_name%/*}
+
+if [[ -z $session_name ]]; then
+  echo -e "\n\tPlease provide session name or session/tab\n"
+  exit 1
+fi
+
+if [[ ! -d $session_base ]]; then
+  echo -e "\n\t$session_base does not exists or is not a folder\n"
+  exit 1
+fi
+
+session_tabs=$(find $session_base -mindepth 1 -maxdepth 1 -name '*.sh' -exec basename {} .sh \; | sort)
+
+if [[ $session_name =~ / ]]; then
+
+  env --chdir=$session_base -S bash $session_base/${session_name#*/}.sh \
+    ${session_name%/*} \
+    ${session_name#*/} \
+  ;
+
+else
+
+  cat <<EOF | kitty --title=$session_name --session=- --detach
+$(for tab in $session_tabs; do
+echo "new_tab $session_name/$tab"
+echo "launch ${BASH_SOURCE[0]} $session_name/$tab"
+done)
+EOF
+
+fi
+

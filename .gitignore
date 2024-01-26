@@ -1,0 +1,17 @@
+
+*
+
+!.bash_profile
+!.gitignore
+!.psqlrc
+!.tmux.conf
+
+!.config/bash_completion.d/
+!.config/bat/
+!.config/kitty/
+!.config/nvim/
+!.config/psql.rc
+!.config/starship.toml
+
+!.local/bin/ktx
+

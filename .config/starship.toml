@@ -1,0 +1,16 @@
+# ~/.config/starship.toml
+
+[directory]
+truncation_length = 10
+truncate_to_repo = false
+
+[character]
+success_symbol = '[➜](bold green)'
+error_symbol = '[✗](bold red)'
+
+[package]
+disabled = true
+
+[cmd_duration]
+disabled = true
+
