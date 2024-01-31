@@ -60,10 +60,6 @@ return {
     },
   },
 
-  {
-    "JoosepAlviste/nvim-ts-context-commentstring",
-  },
-
   -- Navigating (Telescope/Tree/Refactor)
   {
     "nvim-telescope/telescope.nvim",
@@ -117,7 +113,7 @@ return {
   {
     "williamboman/mason.nvim",
     build = ":MasonUpdate", -- :MasonUpdate updates registry contents
-    config = function ()
+    config = function()
       require("mason").setup()
     end
   },
@@ -177,7 +173,7 @@ return {
   {
     "rcarriga/nvim-notify",
     lazy = false,
-    init = function ()
+    init = function()
       require("setup.notify")
     end
   },
@@ -197,7 +193,7 @@ return {
   {
     "akinsho/toggleterm.nvim",
     lazy = false,
-    config = function ()
+    config = function()
       require("setup.toggleterm")
     end
   },
@@ -273,5 +269,13 @@ return {
     end,
   },
 
-}
+  -- Formatters
+  {
+    "stevearc/conform.nvim",
+    lazy = false,
+    config = function()
+      require("setup.conform")
+    end,
+  }
 
+}
