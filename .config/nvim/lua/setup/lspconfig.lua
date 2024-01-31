@@ -1,4 +1,3 @@
-
 local lspconfig = require("lspconfig")
 
 local cmp_capabilities = require("cmp_nvim_lsp").default_capabilities()
@@ -15,7 +14,7 @@ require("mason-lspconfig").setup({
 
   ensure_installed = {
     "bashls", "cssls", "dockerls", "html", "jsonls", "tsserver", "yamlls",
-    "marksman", "sqlls", "taplo", "volar", "emmet_ls", "lua_ls",
+    "marksman", "sqlls", "taplo", "volar", "emmet_ls", "lua_ls", "typos_lsp",
   },
 
 })
@@ -26,7 +25,6 @@ require("mason-lspconfig").setup_handlers({
   -- and will be called for each installed server that doesn"t have
   -- a dedicated handler.
   function(server_name) -- default handler (optional)
-
     if require("neoconf").get(server_name .. ".disable") then
       return
     end
@@ -49,10 +47,8 @@ require("mason-lspconfig").setup_handlers({
     end
 
     lspconfig[server_name].setup(server_config)
-
   end,
 
   -- dedicated handlers for specific servers
 
 })
-
