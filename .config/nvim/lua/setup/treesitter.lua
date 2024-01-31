@@ -1,4 +1,3 @@
-
 require("nvim-treesitter.configs").setup({
   ensure_installed = {
     "tsx",
@@ -13,7 +12,7 @@ require("nvim-treesitter.configs").setup({
     "lua",
     "markdown",
     "vim",
-  },          -- one of "all", or a list of languages
+  },                              -- one of "all", or a list of languages
 
   sync_install = false,           -- install languages synchronously (only applied to `ensure_installed`)
   ignore_install = { "haskell" }, -- list of parsers to ignore installing
@@ -39,9 +38,9 @@ require("nvim-treesitter.configs").setup({
   },
 
   rainbow = {
-    enable = true,
+    enable = false,
     extended_mode = true,
- },
+  },
 
 })
 
@@ -49,4 +48,3 @@ require("ts_context_commentstring").setup({
   enable = true,
   enable_autocmd = false,
 })
-
