@@ -1,6 +1,13 @@
 local prettier_cmd = { { "prettierd", "prettier" } }
+local beautysh_args = { "--indent-size", "2", "--force-function-style", "fnpar" }
 
 require("conform").setup({
+
+  formatters = {
+    beautysh = {
+      prepend_args = beautysh_args
+    }
+  },
 
   formatters_by_ft = {
     typescript = prettier_cmd,
@@ -9,6 +16,7 @@ require("conform").setup({
     json = prettier_cmd,
     jsonc = prettier_cmd,
     yaml = prettier_cmd,
+    sh = { { "beautysh" } },
   },
 
   format_on_save = {
