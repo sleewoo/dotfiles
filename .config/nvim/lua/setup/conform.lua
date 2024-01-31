@@ -1,10 +1,14 @@
+local prettier_cmd = { { "prettierd", "prettier" } }
 
 require("conform").setup({
 
   formatters_by_ft = {
-    typescript = { { "prettierd", "prettier" } },
-    javascript = { { "prettierd", "prettier" } },
-    vue = { { "prettierd", "prettier" } },
+    typescript = prettier_cmd,
+    javascript = prettier_cmd,
+    vue = prettier_cmd,
+    json = prettier_cmd,
+    jsonc = prettier_cmd,
+    yaml = prettier_cmd,
   },
 
   format_on_save = {
@@ -26,4 +30,3 @@ vim.api.nvim_create_user_command("Format", function(args)
   end
   require("conform").format({ async = true, lsp_fallback = true, range = range })
 end, { range = true })
-
