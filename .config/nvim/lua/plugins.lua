@@ -181,6 +181,13 @@ return {
 
   -- Generic
   {
+    "karb94/neoscroll.nvim",
+    lazy = false,
+    config = function()
+      require("neoscroll").setup {}
+    end
+  },
+  {
     "rcarriga/nvim-notify",
     lazy = false,
     init = function()
