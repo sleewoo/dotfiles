@@ -9,12 +9,22 @@ return {
     end
   },
 
+  -- {
+  --   "shaunsingh/nord.nvim",
+  --   lazy = false,
+  --   priority = 1000,
+  --   config = function()
+  --     require("setup.theme.nord")
+  --   end
+  -- },
+
   {
-    "shaunsingh/nord.nvim",
+    "catppuccin/nvim",
+    name = "catppuccin",
     lazy = false,
     priority = 1000,
     config = function()
-      require("setup.theme")
+      require("setup.theme.catppuccin")
     end
   },
 
