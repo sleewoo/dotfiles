@@ -16,7 +16,7 @@ eval "$(zoxide init bash)"
 eval "$(direnv hook bash)"
 
 function jsql() {
-   psql -tX -d $1 -c "select row_to_json(row) from ($2) row"
+  psql -tX -d $1 -c "select row_to_json(row) from ($2) row"
 }
 
 function set_tmux_pane_title() {
