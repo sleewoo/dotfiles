@@ -1,8 +1,7 @@
-
 require("lualine").setup({
 
   options = {
-    theme = "nord",
+    theme = "catppuccin",
     globalstatus = true,
     ignore_focus = { "NvimTree", "toggleterm" },
   },
@@ -29,7 +28,7 @@ require("lualine").setup({
       {
         "tabs",
         mode = 1,
-        fmt = function (_, context)
+        fmt = function(_, context)
           return " 󰈙 " .. context.tabnr
         end
       }
@@ -45,4 +44,3 @@ require("lualine").setup({
   },
 
 })
-
