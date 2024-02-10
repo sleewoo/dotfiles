@@ -15,6 +15,7 @@ require("mason-lspconfig").setup({
   ensure_installed = {
     "bashls", "cssls", "dockerls", "html", "jsonls", "tsserver", "yamlls",
     "marksman", "sqlls", "taplo", "volar", "emmet_ls", "lua_ls", "typos_lsp",
+    "biome",
   },
 
 })

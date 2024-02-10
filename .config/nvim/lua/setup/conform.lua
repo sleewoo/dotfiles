@@ -1,4 +1,5 @@
-local prettier_cmd = { { "prettierd", "prettier" } }
+
+local biome_cmd = { { "biome" } }
 local beautysh_args = { "--indent-size", "2", "--force-function-style", "fnpar" }
 
 require("conform").setup({
@@ -10,12 +11,10 @@ require("conform").setup({
   },
 
   formatters_by_ft = {
-    typescript = prettier_cmd,
-    javascript = prettier_cmd,
-    vue = prettier_cmd,
-    json = prettier_cmd,
-    jsonc = prettier_cmd,
-    yaml = prettier_cmd,
+    typescript = biome_cmd,
+    javascript = biome_cmd,
+    json = biome_cmd,
+    jsonc = biome_cmd,
     sh = { { "beautysh" } },
   },
 
@@ -38,3 +37,4 @@ vim.api.nvim_create_user_command("Format", function(args)
   end
   require("conform").format({ async = true, lsp_fallback = true, range = range })
 end, { range = true })
+
