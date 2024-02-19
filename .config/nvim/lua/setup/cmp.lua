@@ -1,4 +1,3 @@
-
 local cmp_status_ok, cmp = pcall(require, "cmp")
 if not cmp_status_ok then
   return
@@ -19,14 +18,14 @@ end
 -- ╰──────────────────────────────────────────────────────────╯
 
 local icons = {
-  terminal            = "  ",
-  paragraph           = "  ",
-  buffer              = " 🖹 ",
-  bomb                = "  ",
-  snippet             = "  ",
-  calculator          = "  ",
-  folderOpen2         = " ﱮ ",
-  tree                = "  ",
+  terminal    = "  ",
+  paragraph   = "  ",
+  buffer      = " 🖹 ",
+  bomb        = "  ",
+  snippet     = "  ",
+  calculator  = "  ",
+  folderOpen2 = " ﱮ ",
+  tree        = "  ",
 }
 
 local source_mapping = {
@@ -53,7 +52,6 @@ local border_opts = {
 }
 
 local function format(entry, vim_item)
-
   -- Get the item with kind from the lspkind plugin
   local item_with_kind = lspkind.cmp_format({
     mode = "symbol_text",
@@ -70,7 +68,7 @@ local function format(entry, vim_item)
 end
 
 local function luasnip_cmp(fallback)
-  -- replace the expand_or_jumpable() with expand_or_locally_jumpable() 
+  -- replace the expand_or_jumpable() with expand_or_locally_jumpable()
   -- to only jump inside the snippet region
   if luasnip.expand_or_locally_jumpable() then
     luasnip.expand_or_jump()
@@ -92,8 +90,8 @@ cmp.setup({
   },
 
   sources = cmp.config.sources({
-    { name = "buffer",   priority = 100, option = buffer_option },
-    { name = "nvim_lsp", priority = 90 },
+    { name = "nvim_lsp", priority = 100 },
+    { name = "buffer",   priority = 90, option = buffer_option },
     { name = "luasnip",  priority = 80 },
     { name = "npm",      priority = 70 },
   }),
@@ -112,7 +110,7 @@ cmp.setup({
 
     ["<C-Space>"] = cmp.mapping(cmp.mapping.complete({
       reason = cmp.ContextReason.Auto,
-    }), {"i", "c"}),
+    }), { "i", "c" }),
 
     ["<A-Left>"] = cmp.mapping(luasnip_cmp, { "i", "s" }),
     ["<A-Right>"] = cmp.mapping(luasnip_cmp, { "i", "s" }),
@@ -128,4 +126,3 @@ cmp.setup({
   },
 
 })
-
