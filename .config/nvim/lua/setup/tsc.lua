@@ -14,7 +14,7 @@ local userCmdFactory = function(cmd, flags)
       local project = "tsconfig.json"
 
       if opts.fargs[1] then
-        return opts.fargs[1] .. "/" .. project
+        project = opts.fargs[1] .. "/" .. project
       end
 
       tsc.setup({
