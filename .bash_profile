@@ -14,6 +14,7 @@ fi
 eval "$(starship init bash)"
 eval "$(zoxide init bash)"
 eval "$(direnv hook bash)"
+eval "$(rbenv init - bash)"
 
 function jsql() {
   psql -tX -d $1 -c "select row_to_json(row) from ($2) row"
