@@ -16,6 +16,10 @@ eval "$(zoxide init bash)"
 eval "$(direnv hook bash)"
 eval "$(rbenv init - bash)"
 
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
 function jsql() {
   psql -tX -d $1 -c "select row_to_json(row) from ($2) row"
 }
